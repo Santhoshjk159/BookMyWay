@@ -1,5 +1,12 @@
 
 # BookMyWay  
+![image](https://github.com/user-attachments/assets/e265ed42-2cc5-4a79-9383-70c43a0938c4)
+![image](https://github.com/user-attachments/assets/61479c1f-c82f-49a5-9d03-47212a36c0b4)
+![image](https://github.com/user-attachments/assets/c609f79d-a8cc-41ef-8675-e6f98f3a2e84)
+![image](https://github.com/user-attachments/assets/2eef568d-e5f6-4143-bed0-b7bf09615bca)
+
+
+
 
 **BookMyWay** is a modern travel planning application designed to provide a seamless user experience for exploring trending destinations, viewing cost breakdowns, and planning trips efficiently. This project demonstrates the integration of advanced UI/UX principles and API usage to create a complete travel experience.
 

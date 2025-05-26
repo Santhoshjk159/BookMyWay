@@ -14,15 +14,20 @@ import About from "./components/About/About.jsx";
 import PlanTrip from "./components/PlanTrip/PlanTrip.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 
+const repoName = "BookMyWay";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="" element={<Home />} />
+      <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="plan" element={<PlanTrip />} />
-      <Route path="contact" element={<Contact />}/>
+      <Route path="contact" element={<Contact />} />
     </Route>
-  )
+  ),
+  {
+    basename: `/${repoName}`, 
+  }
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(

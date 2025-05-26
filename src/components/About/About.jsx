@@ -1,4 +1,6 @@
 import React from "react";
+import logo from "../img/bmw.jpg";
+
 
 const About = () => {
   return (
@@ -11,7 +13,7 @@ const About = () => {
         <div className="text-center mb-12">
           <div className="mb-6">
             <img
-              src="https://files.oaiusercontent.com/file-VAykRJWKyokwP7D9Uhazgd?se=2025-01-05T12%3A59%3A28Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D35371bde-d903-4e03-8524-5bd2ef5907c8.webp&sig=FBQhZ1AwkpfI6uqDm5UrqDFgAtGIaPlHGNxzukQy028%3D"
+              src={logo}
               alt="BookMyWay Logo"
               className="w-40 h-auto mx-auto mb-4"
             />

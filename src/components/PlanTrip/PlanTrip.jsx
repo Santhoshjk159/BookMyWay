@@ -369,13 +369,12 @@ const Plan = () => {
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const UNSPLASH_API_KEY = "";//Your API KEY HERE.
+  const UNSPLASH_API_KEY = "5U7kdABE1IP8wxXwzMbCNVWRgwKXysYRQrsZ-XGJ79s";
 
-  // Fetch image for a given destination using Unsplash API
   const fetchImage = async (query) => {
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/search/photos`,
+        "https://api.unsplash.com/search/photos",
         {
           params: { query, per_page: 1 },
           headers: {
@@ -390,7 +389,6 @@ const Plan = () => {
     }
   };
 
-  // Fetch images for all destinations on initial load
   const fetchAllImages = async () => {
     const fetchedImages = {};
     for (let destination of destinations) {
@@ -421,55 +419,43 @@ const Plan = () => {
         {destinations.map((destination) => (
           <div
             key={destination.id}
-            className="bg-gray-800 p-4 rounded-lg shadow-lg"
+            className="bg-gray-800 p-4 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+            onClick={() => handleDetails(destination)}
           >
-            {images[destination.id] ? (
+            {images[destination.id] && (
               <img
                 src={images[destination.id]}
                 alt={destination.name}
-                className="w-full h-40 object-cover rounded-lg mb-4"
+                className="w-full h-48 object-cover rounded"
               />
-            ) : (
-              <div className="w-full h-40 bg-gray-700 animate-pulse rounded-lg mb-4"></div>
             )}
-            <h2 className="text-xl font-semibold">{destination.name}</h2>
-            <button
-              onClick={() => handleDetails(destination)}
-              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-            >
-              View Cost Breakdown
-            </button>
+            <h2 className="text-2xl mt-4 font-semibold">{destination.name}</h2>
+            <p className="mt-2 text-sm">Total Cost: {destination.cost.total}</p>
           </div>
         ))}
       </div>
 
       {isPopupOpen && selectedDestination && (
-        <div
-          className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center"
-          onClick={closePopup}
-        >
-          <div
-            className="bg-gray-800 p-6 rounded-lg shadow-lg w-96"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-2xl font-bold mb-4 text-white">
-              {selectedDestination.name} - Cost Breakdown
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+          <div className="bg-white text-black p-6 rounded-lg max-w-md w-full relative">
+            <button
+              className="absolute top-2 right-2 text-xl font-bold"
+              onClick={closePopup}
+            >
+              &times;
+            </button>
+            <h2 className="text-3xl font-bold mb-4">
+              {selectedDestination.name}
             </h2>
-            <ul className="text-gray-400">
+            <ul className="space-y-2">
               <li>Flight: {selectedDestination.cost.flight}</li>
               <li>Accommodation: {selectedDestination.cost.accommodation}</li>
               <li>Food: {selectedDestination.cost.food}</li>
               <li>Local Travel: {selectedDestination.cost.localTravel}</li>
+              <li className="font-bold text-lg">
+                Total: {selectedDestination.cost.total}
+              </li>
             </ul>
-            <h3 className="text-xl font-bold mt-4 text-white">
-              Total: {selectedDestination.cost.total}
-            </h3>
-            <button
-              onClick={closePopup}
-              className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
-            >
-              Close
-            </button>
           </div>
         </div>
       )}

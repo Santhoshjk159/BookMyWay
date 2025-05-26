@@ -369,7 +369,7 @@ const Plan = () => {
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const UNSPLASH_API_KEY = "5U7kdABE1IP8wxXwzMbCNVWRgwKXysYRQrsZ-XGJ79s";
+  const UNSPLASH_API_KEY = "";//Your API KEY HERE.
 
   // Fetch image for a given destination using Unsplash API
   const fetchImage = async (query) => {
